@@ -186,5 +186,33 @@ public class ColorLab
         }
         p10.explore();
         
+        //changeColors(double redAmount, double greenAmount, double blueAmount)
+        //Changes the color to specified values
+        
+        int r, g, b;
+        Color color;
+        Scanner keys = new Scanner(System.in);
+        
+        System.out.print("Red value (Less than or equal to 255): ");
+        r = keys.nextInt();
+        
+        System.out.print("Green value (Less than or equal to 255): ");
+        g = keys.nextInt();
+        
+        System.out.print("Blue value (Less than or equal to 255): ");
+        b = keys.nextInt();
+        
+        color = new Color(r, g, b);
+        pixels = p11.getPixels();
+        
+        
+        for (Pixel pixelObj : pixels)
+        {
+           pixelObj.setColor(color); 
+        }
+        p11.explore();
+        
+        //blueify()
+        //makes a face blue
     }
 }
