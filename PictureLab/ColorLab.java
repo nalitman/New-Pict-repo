@@ -191,6 +191,7 @@ public class ColorLab
         
         int r, g, b;
         Color color;
+        pixels = p11.getPixels();
         Scanner keys = new Scanner(System.in);
         
         System.out.print("Red value (Less than or equal to 255): ");
@@ -214,5 +215,48 @@ public class ColorLab
         
         //blueify()
         //makes a face blue
+        pixels = p12.getPixels();
+        //R 209 G 138 B 118
+        
+        //colorify()
+        //changes a color of a face
+        pixels = p13.getPixels();
+        
+        //swap2()
+        //swap all green color for red
+        pixels = p14.getPixels();
+        
+        int r, g;
+        
+        for (Pixel pixelObj : pixels)
+        {
+            r = pixelObj.getRed();
+            g = pixelObj.getGreen();
+            
+            pixelObj.setRed(g);
+            pixelObj.setGreen(r);
+        }
+        p14.explore();
+        
+        //swap3()
+        //swaps swap all three red = green, green = blue, blue = red
+        pixels = p15.getPixels();
+        
+        int r, g, b;
+        
+        for(Pixel pixelObj : pixels)
+        {
+            r = pixelObj.getRed();
+            g = pixelObj.getGreen();
+            b = pixelObj.getBlue();
+            
+            pixelObj.setRed(g);
+            pixelObj.setGreen(b);
+            pixelObj.setBlue(g);
+        }
+        p15.explore();
+        
+        
+        
     }
 }
