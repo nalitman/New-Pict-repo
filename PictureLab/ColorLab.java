@@ -214,5 +214,18 @@ public class ColorLab
         
         //blueify()
         //makes a face blue
+        int r = 243, g = 161, b = 139;
+        pixels = p12.getPixels();
+        
+        for (Pixel pixelObj : pixels)
+        {
+            if((pixelObj.getRed() > (r - 15) && pixelObj.getRed() < (r + 15)) &&
+                (pixelObj.getGreen() > (g - 15) && pixelObj.getGreen() < (g + 15)) &&
+                (pixelObj.getBlue() > (b - 15) && pixelObj.getBlue() < (b + 15)))
+                pixelObj.setColor(Blue);
+            }
+       
+       //colorify()
+       //changes the color of a facial feature
     }
 }
