@@ -227,5 +227,44 @@ public class ColorLab
        
        //colorify()
        //changes the color of a facial feature
+       int R = 41, G = 33, B = 30;
+       pixels = p13.getPixels();
+       
+       for (Pixel pixelObj : pixels)
+       {
+           if((pixelObj.getRed() > (R - 10) && pixelObj.getRed() < (R + 10)) &&
+                (pixelObj.getGreen() > (G - 10) && pixelObj.getGreen() < (G + 10)) &&
+                (pixelObj.getBlue() > (B - 10) && pixelObj.getBlue() < (B + 10)))
+                pixelObj.setColor(Red);
+            }
+            p12.explore();
+            
+       //swap2()
+       //Changes green value for red
+       pixels = p13.getPixels();
+       
+       for (Pixel pixelObj : pixels)
+       {
+           pixelObj.setGreen(pixelObj.setRed())
+        }
+        
+       //swap3()
+       //swap all three red = green, green = blue, blue = red
+       int hold, hold1, hold2;
+       pixels = p14.getPixels();
+       
+       for(Pixel pixelObj : pixels)
+       {
+           hold = pixelObj.getGreen();
+           hold1 = pixelObj.getRed();
+           hold2 = pixelObj.getBlue();
+           
+           pixelObj.setRed(hold);
+           pixelObj.setGreen(hold2);
+           pixelObj.setBlue(hold1);
+        }
+        p14.explore()
+           
+           
     }
 }

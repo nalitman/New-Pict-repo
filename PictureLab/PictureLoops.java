@@ -17,8 +17,10 @@ public class PictureLoops
         Picture p7 = new Picture("images/temple.jpg");
         Picture p8 = new Picture("images/temple.jpg");
         Picture p9 = new Picture("images/temple.jpg");
-        Picture p10 = new Picture("images/temple.jpg");
-        
+        Picture p10 = new Picture("images/Selfie.jpg");
+        Picture p11 = new Picture("images/Selfie.jpg");
+        Picture p12 = new Picture("images/temple.jpg");
+        Picture p13 = new Picture("images/temple.jpg");
         Pixel [] pixels;
         Color color;
         //Original Picture
@@ -33,7 +35,6 @@ public class PictureLoops
         {
             pixelObj.setBlue(255);
         }
-        
         p1.explore();
         
         //maxRed()
@@ -45,7 +46,6 @@ public class PictureLoops
         {
             pixelObj.setRed(255);
         }
-        
         p2.explore();
         
         //maxGreen()
@@ -57,7 +57,6 @@ public class PictureLoops
         {
             pixelObj.setGreen(255);
         }
-        
         p3.explore();
         
         //negate()
@@ -81,7 +80,6 @@ public class PictureLoops
             pixelObj.setColor(negative);
             
         }
-        
         p4.explore();
         
         //adjustRed(double factor)
@@ -104,7 +102,6 @@ public class PictureLoops
             //Sets red value to new value
             pixelObj.setRed(value);
         }
-        
         p5.explore();
         
         //adjustGreen(double factor)
@@ -127,7 +124,6 @@ public class PictureLoops
             //Sets red value to new value
             pixelObj.setGreen(value1);
         }
-        
         p6.explore();
         
         //adjustBlue(double factor)
@@ -150,10 +146,10 @@ public class PictureLoops
             //Sets red value to new value
             pixelObj.setBlue(value2);
         }
-        
         p7.explore();
         
         //greyscale()
+        //Makes the picture greyscale
         pixels = p8.getPixels();
         int value99, value98, value97, avg;
         
@@ -177,27 +173,9 @@ public class PictureLoops
         }
         p8.explore();
         
-        //brighten()
-        //Brightens the picture
-        pixels = p9.getPixels();
-        
-         for (Pixel pixelObj : pixels)
-        {   //pixelObj is current pixel/spot
-            
-            //Get the current color
-            color = pixelObj.getColor();
-            
-            //Ger a lighter color
-            color = color.brighter();
-            
-            //Set the pixel color to lighter color
-            pixelObj.setColor(color);
-        }
-        p9.explore();
-        
         //darken()
         //Darkens the picture
-        pixels = p10.getPixels();
+        pixels = p9.getPixels();
         
          for (Pixel pixelObj : pixels)
         {   //pixelObj is current pixel/spot
@@ -211,7 +189,66 @@ public class PictureLoops
             //Set the pixel color to lighter color
             pixelObj.setColor(color);
         }
-        p10.explore();
+        p9.explore();
+        
+        //blueify()
+        //makes a face blue
+        int r = 243, g = 161, b = 139;
+        pixels = p10.getPixels();
+        Color blue1 = new Color(0, 0, 255);
+        
+        for (Pixel pixelObj : pixels)
+        {
+            if((pixelObj.getRed() > (r - 30) && pixelObj.getRed() < (r + 30)) &&
+                (pixelObj.getGreen() > (g - 30) && pixelObj.getGreen() < (g + 30)) &&
+                (pixelObj.getBlue() > (b - 30) && pixelObj.getBlue() < (b + 30)))
+                pixelObj.setColor(blue1);
+            }
+            p10.explore();
+            
+       //colorify()
+       //changes the color of a facial feature
+       int R = 41, G = 33, B = 30;
+       pixels = p11.getPixels();
+       Color red1 = new Color(255, 0, 0);
+       
+       for (Pixel pixelObj : pixels)
+       {
+           if((pixelObj.getRed() > (R - 20) && pixelObj.getRed() < (R + 20)) &&
+                (pixelObj.getGreen() > (G - 20) && pixelObj.getGreen() < (G + 20)) &&
+                (pixelObj.getBlue() > (B - 20) && pixelObj.getBlue() < (B + 20)))
+                pixelObj.setColor(red1);
+            }
+            p11.explore();
+            
+      //swap2()
+       //Changes green value for red
+       pixels = p12.getPixels();
+       
+       for (Pixel pixelObj : pixels)
+       {
+           pixelObj.setGreen(pixelObj.getRed());
+        }
+        p12.explore();
+      
+      //swap3()
+       //swap all three red = green, green = blue, blue = red
+       int hold, hold1, hold2;
+       pixels = p13.getPixels();
+       
+       for(Pixel pixelObj : pixels)
+       {
+           hold = pixelObj.getGreen();
+           hold1 = pixelObj.getRed();
+           hold2 = pixelObj.getBlue();
+           
+           pixelObj.setRed(hold);
+           pixelObj.setGreen(hold2);
+           pixelObj.setBlue(hold1);
+        }
+        p13.explore();
+            
+            
 
 }
 }
